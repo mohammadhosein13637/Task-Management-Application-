@@ -63,12 +63,15 @@ abstract class HiveDB {
   }
 
   static T? getValue<T>({
-    required String box,
-    required int key,
-  }) {
-    if (!Hive.isBoxOpen(box)) {
-      throw Exception('$box box is not openned yet!');
-    }
-    return Hive.box(box).get(key.toString());
+  required String box,
+  required int key,
+  T? Function(dynamic)? fromJson, // Added parameter to parse the value
+}) {
+  if (!Hive.isBoxOpen(box)) {
+    throw Exception('$box box is not opened yet!');
   }
+  final dynamic value = Hive.box(box).get(key.toString());
+  return fromJson != null ? fromJson(value) : value as T?;
+}
+
 }
