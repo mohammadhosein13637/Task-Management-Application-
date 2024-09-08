@@ -13,13 +13,12 @@ class SplashPage extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 15),
             child: Column(
               children: [
-                SizedBox(height: MediaQuery.of(context).size.height * 0.2),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.1),
                 Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.width * 0.85,
                   color: Colors.orange,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.05),
                 const Text(
                   "Manage your Task with DayTask",
                   style: TextStyle(
@@ -28,10 +27,12 @@ class SplashPage extends StatelessWidget {
                     fontSize: 36,
                   ),
                 ),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+
                 InkWell(
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.8,
+                  child: Container(
                     height: 70,
+                    color: Colors.orange,
                     child: Center(
                       child: Text("Lets Start"),
                     ),
