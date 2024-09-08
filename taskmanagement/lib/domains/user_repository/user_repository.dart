@@ -22,12 +22,12 @@ class UserRepository {
     return UserBox.getToken()?.canUse() ?? false;
   }
 
-   Future<void> logOut() async {
+  Future<void> logOut() async {
     UserBox.setToken(null);
     _jwtAuthCtrl.add(false);
   }
 
-   Future<String> getAccessToken() async {
+  Future<String> getAccessToken() async {
     final accessToken = UserBox.getToken();
     if (accessToken?.canUse() ?? false) {
       return accessToken!.token;
@@ -37,6 +37,8 @@ class UserRepository {
     }
   }
 
+
+  //! Login and Register Methods 
   Future<LoginResponse?> login({
   required String name,
   required String password,
@@ -93,7 +95,5 @@ class UserRepository {
     return null;
   }
 }
-
-
 
 }
